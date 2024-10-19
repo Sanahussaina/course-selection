@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Selection</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <h1>Course Selection</h1>
+    <form id="courseSelectionForm">
+        <label for="studentId">Student ID:</label>
+        <input type="text" id="studentId" name="studentId" required>
+
+        <h3>Select 4 Theory Courses:</h3>
+        <div id="theoryCourses">
+            <!-- Theory courses will be populated here -->
+        </div>
+
+        <h3>Select 2 Lab Courses:</h3>
+        <div id="labCourses">
+            <!-- Lab courses will be populated here -->
+        </div>
+
+        <button type="submit">Submit Course Selection</button>
+    </form>
+
+    <script src="/static/js/scripts.js"></script>
+</body>
+</html>

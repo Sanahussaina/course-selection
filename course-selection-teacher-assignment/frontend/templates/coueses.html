@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Selection</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <h1>Course Selection</h1>
+    <form method="POST">
+        <h2>Theory Courses</h2>
+        {% for course in theory_courses %}
+            <div>
+                <input type="checkbox" name="courses" value="{{ course.id }}"> {{ course.name }}
+                <select name="teachers">
+                    {% for teacher in teachers %}
+                        <option value="{{ teacher.id }}">{{ teacher.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        {% endfor %}
+        
+        <h2>Lab Courses</h2>
+        {% for course in lab_courses %}
+            <div>
+                <input type="checkbox" name="courses" value="{{ course.id }}"> {{ course.name }}
+                <select name="teachers">
+                    {% for teacher in teachers %}
+                        <option value="{{ teacher.id }}">{{ teacher.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        {% endfor %}
+
+        <h2>Feedback</h2>
+        <textarea name="feedback" placeholder="Provide feedback for your selected teachers..."></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

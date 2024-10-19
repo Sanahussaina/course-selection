@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Courses</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Select Your Courses</h1>
+    <form action="/select-teachers" method="post">
+        <h2>Theory Courses (Select 4)</h2>
+        <div id="theory-courses">
+            <!-- Populate theory courses from backend -->
+        </div>
+
+        <h2>Lab Courses (Select 2)</h2>
+        <div id="lab-courses">
+            <!-- Populate lab courses from backend -->
+        </div>
+
+        <button type="submit">Next: Select Teachers</button>
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $.get("/courses", function(data) {
+                data.theory_courses.forEach(course => {
+                    $('#theory-courses').append(`
+                        <label>
+                            <input type="checkbox" name="theory_courses" value="${course.id}"> ${course.name}
+                        </label>
+                    `);
+                });
+                data.lab_courses.forEach(course => {
+                    $('#lab-courses').append(`
+                        <label>
+                            <input type="checkbox" name="lab_courses" value="${course.id}"> ${course.name}
+                        </label>
+                    `);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
